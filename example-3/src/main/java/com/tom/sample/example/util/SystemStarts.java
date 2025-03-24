@@ -13,12 +13,14 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class SystemStarts implements CommandLineRunner {
 
+	private static int QUANTITY = 30;
+	
 	private final GenerateData data;
 	private final ProductRepository repository;
 	
     @Override
     public void run(String... args) throws Exception {
-		for(int i = 0; i <= 30; i++) {
+		for(int i = 0; i <= QUANTITY; i++) {
 			var gen = data.datagen();
 			repository.save(gen);
 		}

@@ -27,44 +27,44 @@ import lombok.RequiredArgsConstructor;
 public class ProductController {
 
 	private final ProductService service;
+
+	@GetMapping(value = "/get")
+	public ResponseEntity<List<ProductResponse>> getAllProduct() {
+		var response = service.findAllProducts();
+		return ResponseEntity.status(HttpStatus.OK).body(response);
+	}
 	
-	@GetMapping("/get/{id}")
+	@GetMapping(value = "/get/{id}")
 	public ResponseEntity<ProductResponse> getProductId(@PathVariable Long id) {
 		var response = service.findProductId(id);
 		return ResponseEntity.status(HttpStatus.OK).body(response);
 	}
 	
-	@GetMapping("/get/product")
+	@GetMapping(value = "/get/product")
 	public ResponseEntity<ProductResponse> getProductName(@RequestBody @Valid ProductNameRequest request) {
 		var response = service.findProductName(request);
 		return ResponseEntity.status(HttpStatus.OK).body(response);
 	}
 
-	@GetMapping("/get")
-	public ResponseEntity<List<ProductResponse>> getAllProduct() {
-		var response = service.findAllProducts();
-		return ResponseEntity.status(HttpStatus.OK).body(response);
-	}
-
-	@PostMapping("/insert")
+	@PostMapping(value = "/create")
 	public ResponseEntity<ProductResponse> createProduct(@RequestBody @Valid ProductRequest request) {
 		var response = service.createProduct(request);
 		return ResponseEntity.status(HttpStatus.CREATED).body(response);
 	}
 
-	@PutMapping("/edit")
+	@PutMapping(value = "/edit")
 	public ResponseEntity<Void> editProduct(@RequestBody @Valid ProductRequest request) {
 		service.updateProduct(request);
 		return ResponseEntity.status(HttpStatus.ACCEPTED).build();
 	}
 
-	@DeleteMapping("/delete")
+	@DeleteMapping(value = "/delete")
 	public ResponseEntity<Void> deleteProduct(@RequestBody @Valid ProductNameRequest request) {
 		service.deleteProduct(request);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
 	
-	@PutMapping("/activate")
+	@PutMapping(value = "/activate")
 	public ResponseEntity<Void> activateProduct(@RequestBody @Valid ProductNameRequest request) {
 		service.activateProduct(request);
 		return ResponseEntity.status(HttpStatus.OK).build();

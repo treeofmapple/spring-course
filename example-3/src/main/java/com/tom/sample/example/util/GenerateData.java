@@ -10,8 +10,6 @@ public class GenerateData implements DatagenUtil {
 	protected Product datagen() {
 		Product pro = new Product();
 
-		pro.setId(atomicCounter.incrementAndGet());
-
 		pro.setName(faker.commerce().productName());
 
 		pro.setQuantity(getRandomNumber(10, 100));

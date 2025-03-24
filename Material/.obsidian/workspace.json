@@ -24,11 +24,11 @@
         ]
       },
       {
-        "id": "82acbca53a8872d9",
+        "id": "1fa985b5428b115e",
         "type": "tabs",
         "children": [
           {
-            "id": "905e3813b715f90e",
+            "id": "2b763409bac3fa17",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -98,8 +98,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "43d24ef6366880bf",
@@ -115,7 +114,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Spring Boot.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,7 +123,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Spring Boot"
+              "title": "Backlinks"
             }
           },
           {
@@ -134,12 +132,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Spring Boot.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Spring Boot"
+              "title": "Outgoing links"
             }
           },
           {
@@ -163,13 +160,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Spring Boot.md",
+                "file": "Untitled 1.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Spring Boot"
+              "title": "Outline of Untitled 1"
             }
           }
         ]
@@ -189,9 +186,25 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "eac46a36694dc427",
+  "active": "152e1f3c2e358c18",
   "lastOpenFiles": [
     "Untitled.md",
+    "Untitled 1.md",
+    "Powerpoint Material/Later/1.png",
+    "Powerpoint Material/Later",
+    "Powerpoint Material/Base/6.png",
+    "Powerpoint Material/Base/4.png",
+    "Powerpoint Material/Base/3.png",
+    "Powerpoint Material/Base/5.png",
+    "Powerpoint Material/Base/2.png",
+    "Powerpoint Material/Base/1.png",
+    "Powerpoint Material/Base",
+    "Powerpoint Material/spring-overview.png",
+    "Powerpoint Material/1_8KX5TdvTf6HlEjls69uPjw.png",
+    "Powerpoint Material/spring-conheca-esse-framework-java.jpg",
+    "Powerpoint Material/Example-1",
+    "Powerpoint Material",
+    "Nova pasta",
     "Spring Boot.md",
     "Queries.md",
     "Lore.md"
