@@ -13,6 +13,3 @@ spring:
       ddl-auto: ${DDL_AUTO:update} #create #create-drop # validate #none #update
     show-sql: false # show the updates on the sql on the console
 
-  data:
-    rest:
-      base-path: /api

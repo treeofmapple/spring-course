@@ -5,11 +5,11 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.5.0-M2</version>
+		<version>3.5.0-M3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.tom.sample</groupId>
-	<artifactId>example3</artifactId>
+	<artifactId>example-3</artifactId>
 	<version>v1</version>
 	<name>example-3</name>
 	<description>example3</description>

@@ -3,7 +3,7 @@ package com.tom.sample.example.util;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import com.tom.sample.example.product.ProductRepository;
+import com.tom.sample.example.repository.LivrosRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -14,7 +14,7 @@ public class SystemStarts implements CommandLineRunner {
 	private static int QUANTITY = 30;
 	
 	private final GenerateData data;
-	private final ProductRepository repository;
+	private final LivrosRepository repository;
 	
     @Override
     public void run(String... args) throws Exception {

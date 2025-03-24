@@ -1,6 +1,4 @@
 spring:
-  profiles:
-    active: database, console
   datasource:
     url: jdbc:h2:mem:testdb
     driver-class-name: org.h2.Driver
@@ -15,6 +13,9 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  
+  profiles:
+    active: database, console
   application:
     name: example
 
