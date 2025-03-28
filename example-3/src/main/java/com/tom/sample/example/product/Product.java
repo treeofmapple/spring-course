@@ -1,7 +1,6 @@
-package com.tom.sample.example.model;
+package com.tom.sample.example.product;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,20 +8,20 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Index;
-import jakarta.persistence.PrePersist;
-import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
+@Entity
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 @Table(
 	name = "product",
 		indexes = {
@@ -32,7 +31,7 @@ import lombok.NoArgsConstructor;
 		        @UniqueConstraint(name = "uq_productname", columnNames = "product_name")
 	    }
 	)
-public class Product {
+public class Product extends Auditable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -53,22 +52,4 @@ public class Product {
 	@Column(name = "active", nullable = true, unique = false)
 	private boolean active;
 	
-	@Column(name = "last_update", nullable = false, updatable = false)
-	private LocalDateTime lastUpdated;
-
-	@Column(name = "date_created", nullable = false, updatable = false)
-	private LocalDateTime dateCreated;
-
-	@PrePersist
-	private void prePersist() {
-		this.dateCreated = LocalDateTime.now();
-		this.lastUpdated = LocalDateTime.now();
-		this.active = true;
-	}
-
-	@PreUpdate
-	private void preUpdate() {
-		this.lastUpdated = LocalDateTime.now();
-	}
-
 }

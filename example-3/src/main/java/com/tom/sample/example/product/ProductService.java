@@ -1,4 +1,4 @@
-package com.tom.sample.example.service;
+package com.tom.sample.example.product;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -8,14 +8,8 @@ import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import com.tom.sample.example.dto.ProductNameRequest;
-import com.tom.sample.example.dto.ProductRequest;
-import com.tom.sample.example.dto.ProductResponse;
 import com.tom.sample.example.exception.DuplicateException;
 import com.tom.sample.example.exception.NotFoundException;
-import com.tom.sample.example.mapper.ProductMapper;
-import com.tom.sample.example.model.Product;
-import com.tom.sample.example.repository.ProductRepository;
 import com.tom.sample.example.util.SystemUtils;
 
 import jakarta.transaction.Transactional;

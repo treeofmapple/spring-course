@@ -2,7 +2,7 @@ package com.tom.sample.example.util;
 
 import org.springframework.context.annotation.Configuration;
 
-import com.tom.sample.example.model.Product;
+import com.tom.sample.example.product.Product;
 
 @Configuration
 public class GenerateData implements DatagenUtil {

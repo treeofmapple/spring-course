@@ -1,4 +1,4 @@
-package com.tom.sample.example.dto;
+package com.tom.sample.example.product;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;

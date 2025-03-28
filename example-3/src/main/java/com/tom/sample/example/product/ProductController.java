@@ -1,4 +1,4 @@
-package com.tom.sample.example.controller;
+package com.tom.sample.example.product;
 
 import java.util.List;
 
@@ -12,11 +12,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.tom.sample.example.dto.ProductNameRequest;
-import com.tom.sample.example.dto.ProductRequest;
-import com.tom.sample.example.dto.ProductResponse;
-import com.tom.sample.example.service.ProductService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

@@ -7,9 +7,9 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import com.tom.sample.example.dto.ProductRequest;
-import com.tom.sample.example.model.Product;
-import com.tom.sample.example.repository.ProductRepository;
+import com.tom.sample.example.product.Product;
+import com.tom.sample.example.product.ProductRepository;
+import com.tom.sample.example.product.ProductRequest;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;

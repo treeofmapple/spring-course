@@ -1,10 +1,6 @@
-package com.tom.sample.example.mapper;
+package com.tom.sample.example.product;
 
 import org.springframework.stereotype.Service;
-
-import com.tom.sample.example.dto.ProductRequest;
-import com.tom.sample.example.dto.ProductResponse;
-import com.tom.sample.example.model.Product;
 
 @Service
 public class ProductMapper {
@@ -21,7 +17,7 @@ public class ProductMapper {
 
 	public ProductResponse fromProduct(Product product) {
 		return new ProductResponse(product.getId(), product.getName(), product.getQuantity(), product.getPrice(),
-				product.getManufacturer(), product.isActive(), product.getLastUpdated(), product.getDateCreated());
+				product.getManufacturer(), product.isActive(), product.getCreatedAt(), product.getUpdatedAt());
 	}
 
 }

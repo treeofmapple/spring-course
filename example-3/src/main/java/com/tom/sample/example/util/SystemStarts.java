@@ -4,8 +4,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.stereotype.Component;
 
-import com.tom.sample.example.model.Product;
-import com.tom.sample.example.repository.ProductRepository;
+import com.tom.sample.example.product.Product;
+import com.tom.sample.example.product.ProductRepository;
 
 import lombok.RequiredArgsConstructor;
 
