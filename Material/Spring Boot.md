@@ -34,14 +34,11 @@ For example database connectors, kafka message queue, transaction management.
 6. **Spring Boot Starter Dependencies** 
     - Pre-configured dependencies (`spring-boot-starter-web`, `spring-boot-starter-data-jpa`, etc.).
     - No need to manually add each library.
-7. **Standalone Applications** 
-    - Can be packaged as **JAR** instead of WAR.
-    - Run directly with `java -jar yourapp.jar`.
-8. **Spring CLI Support** 
+7. **Spring CLI Support** 
     - Enables rapid prototyping with Groovy scripts.
-9. **Externalized Configuration** 
+8. **Externalized Configuration** 
     - Supports YAML, `.properties`, and environment variables for easy customization.
-10. **Seamless Integration with Cloud & DevOps**
+9. **Seamless Integration with Cloud & DevOps**
 <br>
 
 ### ❌ When NOT to Use Spring Boot?

@@ -1,28 +1,27 @@
 ### **1. Core Spring Boot Annotations**
 
-|Annotation|Description|
-|---|---|
-|`@SpringBootApplication`|Main entry point for a Spring Boot application. Combines `@Configuration`, `@EnableAutoConfiguration`, and `@ComponentScan`.|
-|`@Configuration`|Marks a class as a source of bean definitions.|
-|`@ComponentScan`|Automatically detects and registers beans from specified packages.|
-|`@Bean`|Declares a Spring-managed bean.|
-|`@Lazy`|Delays bean initialization until it's needed.|
-|`@Value("${property}")`|Injects a value from application properties.|
+| Annotation               | Description                                                                                                                  |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
+| `@SpringBootApplication` | Main entry point for a Spring Boot application. Combines `@Configuration`, `@EnableAutoConfiguration`, and `@ComponentScan`. |
+| `@Configuration`         | Marks a class as a source of bean definitions.                                                                               |
+| `@ComponentScan`         | Automatically detects and registers beans from specified packages.                                                           |
+| `@Bean`                  | Declares a Spring-managed bean.                                                                                              |
+| `@Value("${property}")`  | Injects a value from application properties.                                                                                 |
 
 ---
 
 ### **2. Dependency Injection & Component Scanning**
 
-|Annotation|Description|
-|---|---|
-|`@Component`|Generic annotation for defining a Spring-managed bean.|
-|`@Service`|Specialized `@Component` for service layer beans.|
-|`@Repository`|Specialized `@Component` for repository layer beans, adds exception translation for JPA.|
-|`@Controller`|Specialized `@Component` for handling HTTP requests in MVC.|
-|`@RestController`|Combination of `@Controller` and `@ResponseBody` for RESTful web services.|
-|`@Autowired`|Injects dependencies automatically.|
-|`@Qualifier`|Specifies which bean to inject when multiple candidates exist.|
-|`@Primary`|Marks a bean as the default choice when multiple candidates exist.|
+| Annotation        | Description                                                                              |
+| ----------------- | ---------------------------------------------------------------------------------------- |
+| `@Component`      | Generic annotation for defining a Spring-managed bean.                                   |
+| `@Service`        | Specialized `@Component` for service layer beans.                                        |
+| `@Repository`     | Specialized `@Component` for repository layer beans, adds exception translation for JPA. |
+| `@Controller`     | Specialized `@Component` for handling HTTP requests in MVC.                              |
+| `@RestController` | Combination of `@Controller` and `@ResponseBody` for RESTful web services.               |
+| `@Autowired`      | Injects dependencies automatically.                                                      |
+| `@Qualifier`      | Specifies which bean to inject when multiple candidates exist.                           |
+
 
 ---
 

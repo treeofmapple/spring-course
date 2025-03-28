@@ -4,31 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "8347e1eb34afebb5",
+        "id": "7ea9185945473f9a",
         "type": "tabs",
         "children": [
           {
-            "id": "eac46a36694dc427",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Spring Boot.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Spring Boot"
-            }
-          }
-        ]
-      },
-      {
-        "id": "1fa985b5428b115e",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "2b763409bac3fa17",
+            "id": "a34191f12adce6ab",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -182,10 +162,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "152e1f3c2e358c18",
+  "active": "a34191f12adce6ab",
   "lastOpenFiles": [
-    "Spring Boot Português.md",
     "Anotações.md",
+    "Spring Boot Português.md",
+    "Spring Boot.md",
     "Untitled.md",
     "Untitled 1.md",
     "Powerpoint Material/Later/1.png",
@@ -203,7 +184,6 @@
     "Powerpoint Material/Example-1",
     "Powerpoint Material",
     "Nova pasta",
-    "Spring Boot.md",
     "Queries.md",
     "Lore.md"
   ]
