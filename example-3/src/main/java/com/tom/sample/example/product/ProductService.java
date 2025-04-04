@@ -59,10 +59,10 @@ public class ProductService {
 	}
 
 	@Transactional
-	@CachePut(value = "products", key = "#request.name()")
-	public void updateProduct(ProductRequest request) {
-		var product = repository.findByName(request.name()).orElse(null);
-		systemUtils.mergeData(product, request);
+	@CachePut(value = "products", key = "#request.product().name()")
+	public void updateProduct(EditRequest request) {
+		var product = repository.findByName(request.product().name()).orElse(null);
+		systemUtils.mergeData(product, request.request());
 		repository.save(product);
 	}
 

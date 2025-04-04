@@ -3,10 +3,10 @@ package com.tom.sample.example.product;
 import java.math.BigDecimal;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
-import jakarta.validation.constraints.Size;
 
 public record ProductRequest(
 		
@@ -20,7 +20,7 @@ public record ProductRequest(
         String name,
 
         @NotNull(message = "A quantidade não pode ser nula")
-        @Size(min = 1, max = 10, message = "O minimo é 1 o máximo é 10")
+        @Max(value = 1000, message = "O minimo é 1 o máximo é 1000")
         @Schema(
                 accessMode = Schema.AccessMode.READ_WRITE,
                 type = "integer",

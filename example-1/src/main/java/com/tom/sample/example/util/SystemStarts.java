@@ -18,6 +18,7 @@ public class SystemStarts implements CommandLineRunner {
 	
     @Override
     public void run(String... args) throws Exception {
+    	repository.deleteAll();
 		for(int i = 0; i <= QUANTITY; i++) {
 			var gen = data.datagen();
 			repository.save(gen);

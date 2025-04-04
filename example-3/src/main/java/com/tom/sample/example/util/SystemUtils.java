@@ -32,7 +32,7 @@ public class SystemUtils {
     @CacheEvict(value = "products", allEntries = true)
     public void deactivateOldProducts() {
         LocalDateTime thirtyDaysAgo = LocalDateTime.now().minusDays(30);
-        List<Product> oldProducts = repository.findByActiveTrueAndDateCreatedBefore(thirtyDaysAgo);
+        List<Product> oldProducts = repository.findByActiveTrueAndCreatedAtBefore(thirtyDaysAgo);
 
         for (Product product : oldProducts) {
             product.setActive(false);

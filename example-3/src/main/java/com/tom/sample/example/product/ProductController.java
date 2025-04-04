@@ -17,7 +17,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/v1")
+@RequestMapping("/v1/product")
 @RequiredArgsConstructor
 public class ProductController {
 
@@ -48,8 +48,8 @@ public class ProductController {
 	}
 
 	@PutMapping(value = "/edit")
-	public ResponseEntity<Void> editProduct(@RequestBody @Valid ProductRequest request) {
-		service.updateProduct(request);
+	public ResponseEntity<Void> editProduct(@RequestBody @Valid EditRequest editRequest) {
+		service.updateProduct(editRequest);
 		return ResponseEntity.status(HttpStatus.ACCEPTED).build();
 	}
 
