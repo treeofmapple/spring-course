@@ -11,6 +11,7 @@
 **/tmp
 **/out-tsc
 **/bazel-out
+**/*.lock
 
 # Node
 **/node_modules
@@ -87,6 +88,7 @@
 ### VS Code ###
 **/.vscode/
 **/.vscode/*
+**/.vs
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
@@ -100,8 +102,10 @@
 **/.eslintcache
 **/.cache
 **/*.tsbuildinfo
-*.lock
+**/cargo.lock
 **/package-lock.json
-
-# Others
-Material/.obsidian/workspace.json
+*.lock
+**/.class
+*.class
+**/pom.properties
+**/maven-wrapper.properties
