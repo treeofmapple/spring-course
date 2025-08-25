@@ -1,0 +1,31 @@
+<div class="title">First Example - INPUT LIST</div>
+
+<div class="form-container">
+
+  <div class="input-group">
+    <div class="box" data-helper-text="false" data-label="true" data-state="Default" data-type="default">
+      <div class="box-superior-text">Your message</div>
+      <div class="box-internal-text">
+        <textarea placeholder="Type your message here" [(ngModel)]="message" maxlength="500" name="message">
+			</textarea>
+      </div>
+    </div>
+
+    <div class="inferior-text">
+      {{message?.length ?? 0}} / 500
+    </div>
+  </div>
+
+  <button class="button" (click)="submitMessage()" data-state="Default" data-type="default">
+    <span class="text">Store Message</span>
+  </button>
+
+  <div class="box" data-helper-text="false" data-label="false" data-state="Default" data-type="default">
+    <div class="box-no-touch">
+      <textarea [(ngModel)]="messageStored" readonly name="storedMessage">
+			</textarea>
+    </div>
+  </div>
+</div>
+
+
