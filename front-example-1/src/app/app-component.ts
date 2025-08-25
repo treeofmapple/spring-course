@@ -8,10 +8,14 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./app-component.scss', './app-boxes.scss']
 })
 export class AppComponent {
-  message?: string;
-  messageStored?: string;
+  protected message?: string;
+  protected messageStored?: string;
 
-  submitMessage() {
+  submitMessage(event?: KeyboardEvent): void {
+    if(event) {
+      event.preventDefault();
+    }
+
     if(this.message && this.message.trim() != '') {
       this.messageStored = this.message
     }

@@ -6,7 +6,9 @@
     <div class="box" data-helper-text="false" data-label="true" data-state="Default" data-type="default">
       <div class="box-superior-text">Your message</div>
       <div class="box-internal-text">
-        <textarea placeholder="Type your message here" [(ngModel)]="message" maxlength="500" name="message">
+        <textarea 
+        (keydown.control.enter)="submitMessage()"
+        placeholder="Type your message here" [(ngModel)]="message" maxlength="500" name="message">
 			</textarea>
       </div>
     </div>

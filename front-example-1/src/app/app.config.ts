@@ -1,7 +1,7 @@
 import { ApplicationConfig, ErrorHandler, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
 import { PreloadAllModules, provideRouter, withComponentInputBinding, withPreloading, withViewTransitions } from '@angular/router';
 
-import { routes } from './app-component.routes';
+import { routes } from './app.routes';
 import { GlobalErrorHandler } from './core/services/global-error-handler';
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ErrorHandlingInterceptor } from './core/interceptors/error-handling-interceptor';
