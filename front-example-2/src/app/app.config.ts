@@ -23,7 +23,6 @@ import { ErrorHandlingInterceptor } from './core/interceptors/error-handling-int
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    
     {
       provide: ErrorHandler,
       useClass: GlobalErrorHandler,
