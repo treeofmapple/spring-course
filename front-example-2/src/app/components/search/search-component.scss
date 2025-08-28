@@ -1,0 +1,20 @@
+.search-icon {
+  position: relative; 
+  left: 10px; 
+  top: 50%;
+  transform: translateY(-50%);
+  
+  width: 20px;
+  height: 20px;
+
+  background-color: #000000;
+  
+  -webkit-mask-image: url(/assets/icons/search.svg);
+  mask-image: url(/assets/icons/search.svg);
+
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
