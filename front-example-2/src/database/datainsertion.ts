@@ -1,11 +1,10 @@
-import { TaskStatus } from "src/app/model/task-status";
-import { TaskService } from "src/app/service/task-service/task-service";
+import { TaskStatus } from 'src/app/model/task-status';
+import { TaskService } from 'src/app/service/task-service/task-service';
 
 export class DataInsertion {
+  constructor(private taskService: TaskService) {}
 
-    constructor(private taskService: TaskService) {}
-
-    addMockTasks(): void {
+  addMockTasks(): void {
     console.log('Loading mock data for development...');
 
     this.taskService.addTask({
@@ -14,7 +13,7 @@ export class DataInsertion {
       assignedTo: 'Alice',
       status: TaskStatus.Done,
       startDate: new Date('2025-08-25'),
-      dueDate: new Date('2025-08-26')
+      dueDate: new Date('2025-08-26'),
     });
 
     this.taskService.addTask({
@@ -23,17 +22,16 @@ export class DataInsertion {
       assignedTo: 'Bob',
       status: TaskStatus.Pending,
       startDate: new Date('2025-08-27'),
-      dueDate: new Date('2025-09-05')
+      dueDate: new Date('2025-09-05'),
     });
-    
+
     this.taskService.addTask({
       taskName: 'Deploy to Staging',
       task: 'Deploy the first version to the staging server.',
       assignedTo: 'Alice',
       status: TaskStatus.Pending,
       startDate: new Date('2025-09-08'),
-      dueDate: new Date('2025-09-10')
+      dueDate: new Date('2025-09-10'),
     });
   }
-
 }

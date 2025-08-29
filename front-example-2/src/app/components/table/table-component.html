@@ -1,20 +1,28 @@
-<table>
-  <thead>
-    <tr>
-      @for (header of headers; track header) {
-      <th>{{ header }} </th>
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        @for (header of headers; track header) {
+        <th>{{ header }} </th>
+        }
+      </tr>
+    </thead>
+    <tbody>
+      @for(row of data; track row.id) {
+      <tr>
+        @for(header of headers; track header) {
+        <td>
+          {{ getCellValue(row, header) }}
+        </td>
+        }
+      </tr>
       }
-    </tr>
-  </thead>
-  <tbody>
-    @for(row of data; track row.id) {
-    <tr>
-      @for(header of headers; track header) {
-      <td>
-        {{ getCellValue(row, header) }}
-      </td>
-      }
-    </tr>
-    }
-  </tbody>
-</table>
+    </tbody>
+  </table>
+
+  @if(!data || data.length === 0) {
+  <div class="no-data-message">
+    <p>No tasks found.</p>
+  </div>
+  }
+</div>

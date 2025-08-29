@@ -9,12 +9,10 @@ import { Task } from 'src/app/model/task';
   styleUrls: ['./table-component.scss'],
 })
 export class TableComponent {
-
   @Input() headers?: (keyof Task)[];
   @Input() data?: Task[];
 
   public getCellValue(row: Task, header: string): any {
     return (row as any)[header];
   }
-
 }

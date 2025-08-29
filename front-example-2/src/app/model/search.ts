@@ -1,8 +1,4 @@
-import { TaskStatus } from "./task-status";
-
 export interface SearchCriteria {
+  id?: number;
   taskName?: string;
-  assignedTo?: string;
-  status?: TaskStatus;
-  dueDate?: string;
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Task } from 'src/app/model/task';
 import { TaskService } from '../task-service/task-service';
+import { SearchCriteria } from 'src/app/model/search';
 
 @Injectable({
   providedIn: 'root',
@@ -8,26 +9,19 @@ import { TaskService } from '../task-service/task-service';
 export class SearchService {
   constructor(private taskService: TaskService) {}
 
-  searchTasks(searchTerm: string): Task[] {
-    const allTasks = this.taskService.getTasks();
+  searchTasks(criteria: SearchCriteria): Task[] {
+    let results = this.taskService.getTasks();
 
-    if (!searchTerm.trim()) {
-      return allTasks;
+    if (criteria.id != null && !isNaN(criteria.id)) {
+      results = results.filter((task) => task.id === criteria.id);
     }
 
-    const lowercasedTerm = searchTerm.toLowerCase();
-
-    return allTasks.filter((task) => {
-      const startDateString = task.startDate.toLocaleDateString().toLowerCase();
-      const dueDateString = task.dueDate.toLocaleDateString().toLowerCase();
-
-      return (
-        task.taskName.toLowerCase().includes(lowercasedTerm) ||
-        task.assignedTo.toLowerCase().includes(lowercasedTerm) ||
-        task.status.toLowerCase().includes(lowercasedTerm) ||
-        startDateString.includes(lowercasedTerm) ||
-        dueDateString.includes(lowercasedTerm)
+    if (criteria.taskName && criteria.taskName.trim() !== '') {
+      const lowercasedTerm = criteria.taskName.toLowerCase();
+      results = results.filter((task) =>
+        task.taskName.toLowerCase().includes(lowercasedTerm)
       );
-    });
+    }
+    return results;
   }
 }

@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./search-component.scss'],
 })
 export class SearchComponent {
+  
   @Output() searchChanged = new EventEmitter<string>();
   searchControl = new FormControl('');
 
