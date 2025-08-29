@@ -3,7 +3,7 @@
     <thead>
       <tr>
         @for (header of headers; track header) {
-        <th>{{ header }} </th>
+        <th>{{ getHeaderLabel(header) }} </th>
         }
       </tr>
     </thead>

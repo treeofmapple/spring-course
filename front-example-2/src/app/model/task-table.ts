@@ -9,3 +9,13 @@ export const TASK_TABLE_HEADERS: (keyof Task)[] = [
   'startDate',
   'dueDate',
 ] as const;
+
+export const TASK_HEADER_LABELS: Record<keyof Task, string> = {
+  id: 'ID',
+  taskName: 'Task Name',
+  task: 'Description',
+  assignedTo: 'Assigned To:',
+  status: 'Status',
+  startDate: 'Start Date',
+  dueDate: 'Due Date',
+};
