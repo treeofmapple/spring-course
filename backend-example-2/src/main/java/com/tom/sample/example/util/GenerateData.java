@@ -13,17 +13,17 @@ public class GenerateData implements DatagenUtil {
 		Product pro = new Product();
 
         String uniqueName = generateUniqueProductName();
-        pro.setName(uniqueName);
+        pro.setNome(uniqueName);
 
-		pro.setQuantity(getRandomInt(10, 1000));
+		pro.setQuantidade(getRandomInt(10, 1000));
 
-		pro.setPrice(BigDecimal.valueOf(getRandomDouble(10, 120)));
+		pro.setPreco(BigDecimal.valueOf(getRandomDouble(10, 120)));
 		
-		pro.setManufacturer(faker.company().name());
+		pro.setFabricante(faker.company().name());
 
 		// 90 % chance
 		boolean isActive = getRandomNumber(100) < 90;
-		pro.setActive(isActive);
+		pro.setAtivo(isActive);
 
 		return pro;
 	}

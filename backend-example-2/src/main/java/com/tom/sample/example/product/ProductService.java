@@ -15,15 +15,15 @@ public class ProductService {
 	private final ProductRepository repository;
 	private final ProductMapper mapper;
 	
-	public ProductResponse findProductId(Long productId) {
+	public ProductResponse buscarProdutoPorId(Long productId) {
 		return repository.findById(productId).map(mapper::fromProduct).orElse(null);
 	}
 
-	public ProductResponse findProductName(NameRequest request) {
-		return repository.findByName(request.name()).map(mapper::fromProduct).orElse(null);
+	public ProductResponse buscarProdutoPorNome(NameRequest request) {
+		return repository.findByNome(request.name()).map(mapper::fromProduct).orElse(null);
 	}
 
-	public List<ProductResponse> findAllProducts() {
+	public List<ProductResponse> buscarTodosProdutos() {
 		List<Product> product = repository.findAll();
 		if(product.isEmpty()) {
 			throw new RuntimeException("");
@@ -32,8 +32,8 @@ public class ProductService {
 	}
 
 	@Transactional
-	public ProductResponse createProduct(ProductRequest request) {
-		if(repository.existsByName(request.name())) {
+	public ProductResponse criarProduto(ProductRequest request) {
+		if(repository.existsByNome(request.nome())) {
 			throw new RuntimeException("");
 		}
 		
@@ -44,36 +44,36 @@ public class ProductService {
 	}
 
 	@Transactional
-	public void updateProduct(ProductRequest request) {
-		var product = repository.findByName(request.name()).orElse(null);
-		mergeData(product, request);
+	public void atualizarProduto(ProductRequest request) {
+		var product = repository.findByNome(request.nome()).orElse(null);
+		mesclarProduto(product, request);
 		repository.save(product);
 	}
 
 	@Transactional
-	public void deleteProduct(NameRequest request) {
-		if(!repository.existsByName(request.name())) {
+	public void removerProduto(NameRequest request) {
+		if(!repository.existsByNome(request.name())) {
 			throw new RuntimeException("");
 		}
-		repository.deleteByName(request.name());
+		repository.deleteByNome(request.name());
 	}
 
 	@Transactional
-	public void activateProduct(NameRequest request) {
-		var product = repository.findByName(request.name()).orElse(null);
-		if(!product.isActive()) {
-			product.setActive(true);
+	public void ativarProduto(NameRequest request) {
+		var product = repository.findByNome(request.name()).orElse(null);
+		if(!product.isAtivo()) {
+			product.setAtivo(true);
 		} else {
 			throw new RuntimeException("");
 		}
 		
 	}
 
-	private void mergeData(Product product, ProductRequest request) {
-		product.setName(request.name());
-		product.setPrice(request.price());
-		product.setQuantity(request.quantity());
-		product.setManufacturer(request.manufacturer());
+	private void mesclarProduto(Product product, ProductRequest request) {
+		product.setNome(request.nome());
+		product.setPreco(request.preco());
+		product.setQuantidade(request.quantidade());
+		product.setFabricante(request.fabricante());
 	}
 	
 }

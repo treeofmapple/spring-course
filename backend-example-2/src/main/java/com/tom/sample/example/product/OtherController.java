@@ -19,14 +19,14 @@ public class OtherController {
 	private final ProductService service;
 
 	@GetMapping("/get/product")
-	public ResponseEntity<ProductResponse> getProductName(@RequestBody @Valid NameRequest request) {
-		var response = service.findProductName(request);
+	public ResponseEntity<ProductResponse> buscarProdutoPeloNome(@RequestBody @Valid NameRequest request) {
+		var response = service.buscarProdutoPorNome(request);
 		return ResponseEntity.status(HttpStatus.OK).body(response);
 	}
 
 	@PutMapping("/activate")
-	public ResponseEntity<Void> activateProduct(@RequestBody @Valid NameRequest request) {
-		service.activateProduct(request);
+	public ResponseEntity<Void> ativarProduto(@RequestBody @Valid NameRequest request) {
+		service.ativarProduto(request);
 		return ResponseEntity.status(HttpStatus.OK).build();
 	}
 }

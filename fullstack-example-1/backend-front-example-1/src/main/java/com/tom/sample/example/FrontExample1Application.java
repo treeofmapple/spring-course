@@ -10,4 +10,6 @@ public class FrontExample1Application {
 		SpringApplication.run(FrontExample1Application.class, args);
 	}
 
+	// Make a crud with java and make the crud work on angular
+	
 }

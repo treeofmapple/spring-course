@@ -24,32 +24,32 @@ public class ProductController {
 	private final ProductService service;
 
 	@GetMapping("/get")
-	public ResponseEntity<List<ProductResponse>> getAllProduct() {
-		var response = service.findAllProducts();
+	public ResponseEntity<List<ProductResponse>> BuscarTodosProdutos() {
+		var response = service.buscarTodosProdutos();
 		return ResponseEntity.status(HttpStatus.OK).body(response);
 	}
 
 	@GetMapping("/get/{id}")
-	public ResponseEntity<ProductResponse> getProductId(@PathVariable Long id) {
-		var response = service.findProductId(id);
+	public ResponseEntity<ProductResponse> BuscarPorId(@PathVariable Long id) {
+		var response = service.buscarProdutoPorId(id);
 		return ResponseEntity.status(HttpStatus.OK).body(response);
 	}
 
 	@PostMapping("/create")
-	public ResponseEntity<ProductResponse> createProduct(@RequestBody @Valid ProductRequest request) {
-		var response = service.createProduct(request);
+	public ResponseEntity<ProductResponse> CriarProduto(@RequestBody @Valid ProductRequest request) {
+		var response = service.criarProduto(request);
 		return ResponseEntity.status(HttpStatus.CREATED).body(response);
 	}
 
 	@PutMapping("/edit")
-	public ResponseEntity<Void> editProduct(@RequestBody @Valid ProductRequest request) {
-		service.updateProduct(request);
+	public ResponseEntity<Void> EditarProduto(@RequestBody @Valid ProductRequest request) {
+		service.atualizarProduto(request);
 		return ResponseEntity.status(HttpStatus.ACCEPTED).build();
 	}
 
 	@DeleteMapping("/delete")
-	public ResponseEntity<Void> deleteProduct(@RequestBody @Valid NameRequest request) {
-		service.deleteProduct(request);
+	public ResponseEntity<Void> RemoverProduto(@RequestBody @Valid NameRequest request) {
+		service.removerProduto(request);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
 

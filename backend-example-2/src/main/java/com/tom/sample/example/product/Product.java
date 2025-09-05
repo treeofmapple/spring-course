@@ -25,19 +25,19 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@Column(name = "product_name", nullable = false, unique = false)
-	private String name;
+	@Column(name = "nome", nullable = false, unique = false)
+	private String nome;
 
-	@Column(name = "quantity", nullable = true, unique = false)
-	private int quantity;
+	@Column(name = "quantidade", nullable = true, unique = false)
+	private int quantidade;
 	
-	@Column(name = "price", nullable = true, unique = false)
-	private BigDecimal price;
+	@Column(name = "preco", nullable = true, unique = false)
+	private BigDecimal preco;
 
-	@Column(name = "manufacturer", nullable = true, unique = false)
-	private String manufacturer;
+	@Column(name = "fabricante", nullable = true, unique = false)
+	private String fabricante;
 
-	@Column(name = "active", nullable = true, unique = false)
-	private boolean active;
+	@Column(name = "ativo", nullable = true, unique = false)
+	private boolean ativo;
 	
 }

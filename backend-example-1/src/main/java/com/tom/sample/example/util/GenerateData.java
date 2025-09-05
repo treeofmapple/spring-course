@@ -13,16 +13,16 @@ public class GenerateData implements DatagenUtil {
 		Livros pro = new Livros();
 
 		String uniqueName = generateUniqueProductName();
-		pro.setTitle(uniqueName);
+		pro.setTitulo(uniqueName);
 
-		pro.setAuthor(faker.book().author());
+		pro.setAutor(faker.book().author());
 
 		boolean data = getRandomNumber(100) < 90;
 
 		if (data) {
-			pro.setBookDate(generatePastDate(5,12));
+			pro.setDataLivro(generatePastDate(5,12));
 		} else {
-			pro.setBookDate(generatePastDate(12,30));
+			pro.setDataLivro(generatePastDate(12,30));
 		}
 
 		return pro;

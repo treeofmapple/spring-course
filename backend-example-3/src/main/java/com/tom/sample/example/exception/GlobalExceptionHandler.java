@@ -21,8 +21,8 @@ public class GlobalExceptionHandler {
 	public ResponseEntity<String> handleConflictException(RuntimeException exp) {
 		return ResponseEntity.status(HttpStatus.CONFLICT).body(((CustomGlobalException) exp).getMsg());
 	}
-	
-	@ExceptionHandler(MethodArgumentNotValidException.class)
+
+	@ExceptionHandler({ MethodArgumentNotValidException.class })
 	public ResponseEntity<ErrorResponse> handle(MethodArgumentNotValidException exp) {
 
 		var errors = new HashMap<String, String>();

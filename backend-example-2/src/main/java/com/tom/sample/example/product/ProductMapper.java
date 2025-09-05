@@ -10,14 +10,14 @@ public class ProductMapper {
 			return null;
 		}
 
-		return Product.builder().name(request.name()).quantity(request.quantity()).price(request.price())
-				.manufacturer(request.manufacturer()).build();
+		return Product.builder().nome(request.nome()).quantidade(request.quantidade()).preco(request.preco())
+				.fabricante(request.fabricante()).build();
 
 	}
 
 	public ProductResponse fromProduct(Product product) {
-		return new ProductResponse(product.getId(), product.getName(), product.getQuantity(), product.getPrice(),
-				product.getManufacturer(), product.isActive());
+		return new ProductResponse(product.getId(), product.getNome(), product.getQuantidade(), product.getPreco(),
+				product.getFabricante(), product.isAtivo());
 	}
 
 }

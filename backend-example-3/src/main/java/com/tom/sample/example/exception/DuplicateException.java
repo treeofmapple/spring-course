@@ -7,7 +7,5 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class DuplicateException extends CustomGlobalException {
-
 	private final String msg;
-	
 }

@@ -10,4 +10,6 @@ public class FrontExample2Application {
 		SpringApplication.run(FrontExample2Application.class, args);
 	}
 
+	// Make something for like simulation of authentication
+	
 }

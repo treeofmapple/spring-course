@@ -1,9 +1,7 @@
 spring:
-  output:
-    ansi:
-      enabled: always
-  aop:
-    auto: true # When you don't need logging.
+#  config:
+#    activate:
+#      on-profile: dev
   banner:
     location: classpath:banner/banner.txt
   main:
@@ -14,7 +12,5 @@ logging:
     org:
       springframework: warn
       boot: error
-      data:
-        redis: debug
   pattern:
     console: '%n %d{HH:mm:ss} | %highlight(%-5level) | %cyan(%logger{30}) | %msg'

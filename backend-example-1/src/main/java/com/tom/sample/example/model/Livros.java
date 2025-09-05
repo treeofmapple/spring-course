@@ -21,10 +21,10 @@ public class Livros {
 	@GeneratedValue
 	private Long id;
 
-	private String title;
+	private String titulo;
 	
-	private String author;
+	private String autor;
 	
-	private LocalDate bookDate;
+	private LocalDate dataLivro;
 
 }
