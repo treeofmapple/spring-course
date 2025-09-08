@@ -4,7 +4,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.stereotype.Component;
 
-import com.tom.sample.example.product.Product;
+import com.tom.sample.example.product.Produto;
 import com.tom.sample.example.product.ProductRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -28,7 +28,7 @@ public class SystemStarts implements CommandLineRunner {
 	}
 	
     @CachePut(value = "products", key = "#product.id")
-    public Product cacheProduct(Product product) {
+    public Produto cacheProduct(Produto product) {
         return product;
     }
     

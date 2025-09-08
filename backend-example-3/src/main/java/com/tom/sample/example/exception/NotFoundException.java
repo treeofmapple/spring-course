@@ -1,11 +1,13 @@
 package com.tom.sample.example.exception;
 
-import lombok.Data;
+import org.springframework.http.HttpStatus;
+
 import lombok.EqualsAndHashCode;
 
 @SuppressWarnings("serial")
 @EqualsAndHashCode(callSuper = true)
-@Data
 public class NotFoundException extends CustomGlobalException {
-	private final String msg;
+	public NotFoundException(String message) {
+		super(message, HttpStatus.NOT_FOUND);
+	}
 }

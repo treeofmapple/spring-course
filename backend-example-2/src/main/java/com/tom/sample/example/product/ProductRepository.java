@@ -12,6 +12,4 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
 	boolean existsByNome(String name);
 
-	void deleteByNome(String name);
-
 }

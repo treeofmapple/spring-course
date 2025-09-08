@@ -11,26 +11,28 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
+@Entity
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "product")
-public class Product {
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+@Table(name = "produto")
+public class Produto extends Auditable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO) // Identity
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "nome")
+	@Column(name = "nome", nullable = false)
 	private String nome;
 
 	@Column(name = "quantidade", nullable = true)
 	private int quantidade;
-
+	
 	@Column(name = "preco", nullable = true)
 	private BigDecimal preco;
 
@@ -39,5 +41,5 @@ public class Product {
 
 	@Column(name = "ativo", nullable = true)
 	private boolean ativo;
-
+	
 }

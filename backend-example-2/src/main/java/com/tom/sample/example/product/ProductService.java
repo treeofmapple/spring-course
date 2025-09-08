@@ -20,7 +20,7 @@ public class ProductService {
 	}
 
 	public ProductResponse buscarProdutoPorNome(NameRequest request) {
-		return repository.findByNome(request.name()).map(mapper::fromProduct).orElse(null);
+		return repository.findByNome(request.nome()).map(mapper::fromProduct).orElse(null);
 	}
 
 	public List<ProductResponse> buscarTodosProdutos() {
@@ -38,29 +38,41 @@ public class ProductService {
 		}
 		
 		var data = repository.save(mapper.toProduct(request));
-		var response = mapper.fromProduct(data);
 		
-		return response;
+		return mapper.fromProduct(data);
 	}
 
 	@Transactional
-	public void atualizarProduto(ProductRequest request) {
+	public void atualizarProduto(long id, ProductRequest request) {
+		var first = repository.findById(id).orElseThrow();
 		var product = repository.findByNome(request.nome()).orElse(null);
-		mesclarProduto(product, request);
+		mesclarProduto(first, request);
 		repository.save(product);
 	}
 
 	@Transactional
-	public void removerProduto(NameRequest request) {
-		if(!repository.existsByNome(request.name())) {
+	public void removerProduto(long id /* NameRequest request */) {
+		
+		/*
+		if(!repository.existsByNome(request.nome())) {
 			throw new RuntimeException("");
 		}
-		repository.deleteByNome(request.name());
+		var product = repository.findByNome(request.nome()).orElse(null);
+		
+		 */
+		/*
+		 * If the database query finds more than one product with the same name, Spring
+		 * Data JPA will throw an IncorrectResultSizeDataAccessException because the
+		 * result doesn't match the expected single-item return type.
+		 */
+		
+		var removeProd = repository.findById(id).orElseThrow();
+		repository.deleteById(removeProd.getId());
 	}
 
 	@Transactional
-	public void ativarProduto(NameRequest request) {
-		var product = repository.findByNome(request.name()).orElse(null);
+	public void ativarProduto(long id) {
+		var product = repository.findById(id).orElseThrow();
 		if(!product.isAtivo()) {
 			product.setAtivo(true);
 		} else {

@@ -30,7 +30,7 @@ public class ProductController {
 	}
 
 	@GetMapping("/get/{id}")
-	public ResponseEntity<ProductResponse> BuscarPorId(@PathVariable Long id) {
+	public ResponseEntity<ProductResponse> BuscarPorId(@PathVariable long id) {
 		var response = service.buscarProdutoPorId(id);
 		return ResponseEntity.status(HttpStatus.OK).body(response);
 	}
@@ -41,15 +41,15 @@ public class ProductController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(response);
 	}
 
-	@PutMapping("/edit")
-	public ResponseEntity<Void> EditarProduto(@RequestBody @Valid ProductRequest request) {
-		service.atualizarProduto(request);
+	@PutMapping("/edit/{id}")
+	public ResponseEntity<Void> EditarProduto(@PathVariable long id, @RequestBody @Valid ProductRequest request) {
+		service.atualizarProduto(id, request);
 		return ResponseEntity.status(HttpStatus.ACCEPTED).build();
 	}
 
-	@DeleteMapping("/delete")
-	public ResponseEntity<Void> RemoverProduto(@RequestBody @Valid NameRequest request) {
-		service.removerProduto(request);
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<Void> RemoverProduto(@PathVariable long id) {
+		service.removerProduto(id);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
 

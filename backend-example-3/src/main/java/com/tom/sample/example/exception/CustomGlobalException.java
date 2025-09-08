@@ -1,6 +1,19 @@
 package com.tom.sample.example.exception;
 
+import org.springframework.http.HttpStatus;
+
 @SuppressWarnings("serial")
 public abstract class CustomGlobalException extends RuntimeException {
-	public abstract String getMsg();
+
+	private final HttpStatus status;
+
+	protected CustomGlobalException(String message, HttpStatus status) {
+		super(message);
+		this.status = status;
+	}
+
+	public HttpStatus getStatus() {
+		return status;
+	}
+
 }

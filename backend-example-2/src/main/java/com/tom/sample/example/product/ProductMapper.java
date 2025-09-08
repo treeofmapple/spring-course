@@ -7,17 +7,25 @@ public class ProductMapper {
 
 	public Product toProduct(ProductRequest request) {
 		if (request == null) {
-			return null;
+			throw new RuntimeException("");
 		}
 
-		return Product.builder().nome(request.nome()).quantidade(request.quantidade()).preco(request.preco())
-				.fabricante(request.fabricante()).build();
+		return Product.builder().nome(request.nome())
+				.quantidade(request.quantidade())
+				.preco(request.preco())
+				.fabricante(request.fabricante())
+				.build();
 
 	}
 
 	public ProductResponse fromProduct(Product product) {
-		return new ProductResponse(product.getId(), product.getNome(), product.getQuantidade(), product.getPreco(),
-				product.getFabricante(), product.isAtivo());
+		return new ProductResponse(product.getId(), 
+				product.getNome(), 
+				product.getQuantidade(), 
+				product.getPreco(),
+				product.getFabricante(), 
+				product.isAtivo()
+			);
 	}
 
 }

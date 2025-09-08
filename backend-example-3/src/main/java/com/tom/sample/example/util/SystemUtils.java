@@ -7,7 +7,7 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import com.tom.sample.example.product.Product;
+import com.tom.sample.example.product.Produto;
 import com.tom.sample.example.product.ProductRepository;
 import com.tom.sample.example.product.ProductRequest;
 
@@ -20,7 +20,7 @@ public class SystemUtils {
 
 	private final ProductRepository repository;
 	
-	public void mergeData(Product product, ProductRequest request) {
+	public void mergeData(Produto product, ProductRequest request) {
 		product.setName(request.name());
 		product.setPrice(request.price());
 		product.setQuantity(request.quantity());
@@ -32,9 +32,9 @@ public class SystemUtils {
     @CacheEvict(value = "products", allEntries = true)
     public void deactivateOldProducts() {
         LocalDateTime thirtyDaysAgo = LocalDateTime.now().minusDays(30);
-        List<Product> oldProducts = repository.findByActiveTrueAndCreatedAtBefore(thirtyDaysAgo);
+        List<Produto> oldProducts = repository.findByActiveTrueAndCreatedAtBefore(thirtyDaysAgo);
 
-        for (Product product : oldProducts) {
+        for (Produto product : oldProducts) {
             product.setActive(false);
         }
 

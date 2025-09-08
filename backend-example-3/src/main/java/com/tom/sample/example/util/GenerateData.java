@@ -4,13 +4,13 @@ import java.math.BigDecimal;
 
 import org.springframework.context.annotation.Configuration;
 
-import com.tom.sample.example.product.Product;
+import com.tom.sample.example.product.Produto;
 
 @Configuration
 public class GenerateData implements DatagenUtil {
 
-	protected Product datagen() {
-		Product pro = new Product();
+	protected Produto datagen() {
+		Produto pro = new Produto();
 
         String uniqueName = generateUniqueProductName();
         pro.setName(uniqueName);

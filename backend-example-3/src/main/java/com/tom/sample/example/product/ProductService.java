@@ -24,7 +24,7 @@ public class ProductService {
 	private final ProductMapper mapper;
 	
 	public List<ProductResponse> findAllProducts() {
-		List<Product> product = repository.findAll();
+		List<Produto> product = repository.findAll();
 		if(product.isEmpty()) {
 			throw new NotFoundException("");
 		}

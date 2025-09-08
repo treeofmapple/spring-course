@@ -9,6 +9,3 @@ import com.tom.sample.example.model.Livros;
 public interface LivrosRepository extends JpaRepository<Livros, Long> {
 
 }
-
-
-
