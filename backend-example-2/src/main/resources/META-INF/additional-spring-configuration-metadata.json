@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "application.quantity",
+    "type": "java.lang.Integer",
+    "description": "This sets the quantity of data generated when the systems starts."
+  },
+  {
+    "name": "application.clean",
+    "type": "java.lang.Boolean",
+    "description": "When the system starts delete the data"
+  }
+]}

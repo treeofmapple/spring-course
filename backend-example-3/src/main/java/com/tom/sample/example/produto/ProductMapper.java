@@ -1,4 +1,4 @@
-package com.tom.sample.example.product;
+package com.tom.sample.example.produto;
 
 import org.springframework.stereotype.Service;
 
@@ -17,8 +17,8 @@ public class ProductMapper {
 				.build();
 	}
 
-	public ProductResponse fromProduct(Produto product) {
-		return new ProductResponse(product.getId(), 
+	public ProdutoResponse fromProduct(Produto product) {
+		return new ProdutoResponse(product.getId(), 
 				product.getNome(), 
 				product.getQuantidade(), 
 				product.getPreco(),

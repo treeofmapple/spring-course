@@ -1,4 +1,4 @@
-package com.tom.sample.example.product;
+package com.tom.sample.example.produto;
 
 import java.math.BigDecimal;
 
@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 
-public record ProductRequest(
+public record ProdutoRequer(
 		
         @NotBlank(message = "O nome não pode estar em branco")
         String nome,

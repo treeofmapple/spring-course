@@ -1,5 +1,6 @@
-package com.tom.sample.example.product;
+package com.tom.sample.example.produto;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,23 +10,27 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tom.sample.example.produto.swagger.ProdutoResposta;
+
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/v1")
-@RequiredArgsConstructor
-public class OtherController {
+@RequestMapping("/v1/spec")
+// @RequiredArgsConstructor
+public class OutroControlador {
 
-	private final ProductService service;
+	@Autowired
+	private ProdutoServico service;
+	
+	// private final ProdutoServico service;
 
-	@GetMapping("/get/product")
-	public ResponseEntity<ProductResponse> buscarProdutoPeloNome(@RequestBody @Valid NameRequest request) {
+	@GetMapping("/buscar/produto")
+	public ResponseEntity<ProdutoResposta> buscarProdutoPeloNome(@RequestBody @Valid NomeRequer request) {
 		var response = service.buscarProdutoPorNome(request);
 		return ResponseEntity.status(HttpStatus.OK).body(response);
 	}
 
-	@PutMapping("/activate/{id}")
+	@PutMapping("/ativar/{id}")
 	public ResponseEntity<Void> ativarProduto(@PathVariable long id) {
 		service.ativarProduto(id);
 		return ResponseEntity.status(HttpStatus.OK).build();

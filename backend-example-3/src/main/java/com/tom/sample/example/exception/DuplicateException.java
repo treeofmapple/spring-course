@@ -2,11 +2,8 @@ package com.tom.sample.example.exception;
 
 import org.springframework.http.HttpStatus;
 
-import lombok.EqualsAndHashCode;
-
 @SuppressWarnings("serial")
-@EqualsAndHashCode(callSuper = true)
-public class DuplicateException extends CustomGlobalException {
+public class DuplicateException extends BaseException {
 	public DuplicateException(String message) {
 		super(message, HttpStatus.CONFLICT);
 	}

@@ -2,11 +2,8 @@ package com.tom.sample.example.exception;
 
 import org.springframework.http.HttpStatus;
 
-import lombok.EqualsAndHashCode;
-
 @SuppressWarnings("serial")
-@EqualsAndHashCode(callSuper = true)
-public class NotFoundException extends CustomGlobalException {
+public class NotFoundException extends BaseException {
 	public NotFoundException(String message) {
 		super(message, HttpStatus.NOT_FOUND);
 	}

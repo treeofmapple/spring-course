@@ -1,4 +1,4 @@
-package com.tom.sample.example.product;
+package com.tom.sample.example.produto;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -13,8 +13,6 @@ public interface ProductRepository extends JpaRepository<Produto, Long> {
 	Optional<Produto> findByName(String name);
 
 	boolean existsByName(String name);
-
-	void deleteByName(String name);
 
 	List<Produto> findByActiveTrueAndCreatedAtBefore(LocalDateTime date);
 }

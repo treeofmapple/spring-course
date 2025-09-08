@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 import org.springframework.context.annotation.Configuration;
 
-import com.tom.sample.example.product.Produto;
+import com.tom.sample.example.produto.Produto;
 
 @Configuration
 public class GenerateData implements DatagenUtil {

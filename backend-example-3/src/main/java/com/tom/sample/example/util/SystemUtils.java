@@ -6,9 +6,9 @@ import java.util.List;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import com.tom.sample.example.product.ProductRepository;
-import com.tom.sample.example.product.ProductRequest;
-import com.tom.sample.example.product.Produto;
+import com.tom.sample.example.produto.ProductRepository;
+import com.tom.sample.example.produto.ProductRequest;
+import com.tom.sample.example.produto.Produto;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;

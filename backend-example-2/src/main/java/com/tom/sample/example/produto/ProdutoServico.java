@@ -1,30 +1,32 @@
-package com.tom.sample.example.product;
+package com.tom.sample.example.produto;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
+import com.tom.sample.example.produto.swagger.ProdutoResposta;
+
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class ProductService {
+public class ProdutoServico {
 
-	private final ProductRepository repository;
-	private final ProductMapper mapper;
+	private final ProdutoRepositorio repository;
+	private final ProdutoMapeamento mapper;
 	
-	public ProductResponse buscarProdutoPorId(Long productId) {
+	public ProdutoResposta buscarProdutoPorId(Long productId) {
 		return repository.findById(productId).map(mapper::fromProduct).orElse(null);
 	}
 
-	public ProductResponse buscarProdutoPorNome(NameRequest request) {
+	public ProdutoResposta buscarProdutoPorNome(NomeRequer request) {
 		return repository.findByNome(request.nome()).map(mapper::fromProduct).orElse(null);
 	}
 
-	public List<ProductResponse> buscarTodosProdutos() {
-		List<Product> product = repository.findAll();
+	public List<ProdutoResposta> buscarTodosProdutos() {
+		List<Produto> product = repository.findAll();
 		if(product.isEmpty()) {
 			throw new RuntimeException("");
 		}
@@ -32,7 +34,7 @@ public class ProductService {
 	}
 
 	@Transactional
-	public ProductResponse criarProduto(ProductRequest request) {
+	public ProdutoResposta criarProduto(ProdutoRequer request) {
 		if(repository.existsByNome(request.nome())) {
 			throw new RuntimeException("");
 		}
@@ -43,7 +45,7 @@ public class ProductService {
 	}
 
 	@Transactional
-	public void atualizarProduto(long id, ProductRequest request) {
+	public void atualizarProduto(long id, ProdutoRequer request) {
 		var first = repository.findById(id).orElseThrow();
 		var product = repository.findByNome(request.nome()).orElse(null);
 		mesclarProduto(first, request);
@@ -81,7 +83,7 @@ public class ProductService {
 		
 	}
 
-	private void mesclarProduto(Product product, ProductRequest request) {
+	private void mesclarProduto(Produto product, ProdutoRequer request) {
 		product.setNome(request.nome());
 		product.setPreco(request.preco());
 		product.setQuantidade(request.quantidade());

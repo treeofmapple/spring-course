@@ -4,24 +4,53 @@
     "type": "split",
     "children": [
       {
-        "id": "e4202bf35f134f79",
+        "id": "d34fd242716d33ee",
         "type": "tabs",
         "children": [
           {
-            "id": "38e07e8320d590b8",
+            "id": "bc72b945f64527ad",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Spring Boot.md",
+                "file": "Untitled.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Spring Boot"
+              "title": "Untitled"
+            }
+          },
+          {
+            "id": "421698e5115546a5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Spring Boot Português.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Spring Boot Português"
+            }
+          },
+          {
+            "id": "96ec3beef0b868d1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Anotações.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Anotações"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -78,7 +107,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "43d24ef6366880bf",
@@ -158,6 +188,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -166,12 +197,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "38e07e8320d590b8",
+  "active": "96ec3beef0b868d1",
   "lastOpenFiles": [
+    "Untitled.md",
+    "Anotações.md",
     "Spring Boot Português.md",
     "Spring Boot.md",
-    "Anotações.md",
-    "Untitled.md",
     "Untitled 1.md",
     "Powerpoint Material/Later/1.png",
     "Powerpoint Material/Later",

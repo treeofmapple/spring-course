@@ -1,7 +1,8 @@
-package com.tom.sample.example.product;
+package com.tom.sample.example.produto;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,42 +14,46 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tom.sample.example.produto.swagger.ProdutoResposta;
+
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/v1/product")
-@RequiredArgsConstructor
-public class ProductController {
+@RequestMapping("/v1/produto")
+// @RequiredArgsConstructor
+public class ProdutoControlador {
 
-	private final ProductService service;
+	@Autowired
+	private ProdutoServico service;
+	
+	// private final ProdutoServico service;
 
-	@GetMapping("/get")
-	public ResponseEntity<List<ProductResponse>> BuscarTodosProdutos() {
+	@GetMapping("/buscar")
+	public ResponseEntity<List<ProdutoResposta>> BuscarTodosProdutos() {
 		var response = service.buscarTodosProdutos();
 		return ResponseEntity.status(HttpStatus.OK).body(response);
 	}
 
-	@GetMapping("/get/{id}")
-	public ResponseEntity<ProductResponse> BuscarPorId(@PathVariable long id) {
+	@GetMapping("/buscar/{id}")
+	public ResponseEntity<ProdutoResposta> BuscarPorId(@PathVariable Long id) {
 		var response = service.buscarProdutoPorId(id);
 		return ResponseEntity.status(HttpStatus.OK).body(response);
 	}
 
-	@PostMapping("/create")
-	public ResponseEntity<ProductResponse> CriarProduto(@RequestBody @Valid ProductRequest request) {
+	@PostMapping("/criar")
+	public ResponseEntity<ProdutoResposta> CriarProduto(@RequestBody @Valid ProdutoRequer request) {
 		var response = service.criarProduto(request);
 		return ResponseEntity.status(HttpStatus.CREATED).body(response);
 	}
 
-	@PutMapping("/edit/{id}")
-	public ResponseEntity<Void> EditarProduto(@PathVariable long id, @RequestBody @Valid ProductRequest request) {
+	@PutMapping("/editar/{id}")
+	public ResponseEntity<Void> EditarProduto(@PathVariable Long id, @RequestBody @Valid ProdutoRequer request) {
 		service.atualizarProduto(id, request);
 		return ResponseEntity.status(HttpStatus.ACCEPTED).build();
 	}
 
-	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<Void> RemoverProduto(@PathVariable long id) {
+	@DeleteMapping("/deletar/{id}")
+	public ResponseEntity<Void> RemoverProduto(@PathVariable Long id) {
 		service.removerProduto(id);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}

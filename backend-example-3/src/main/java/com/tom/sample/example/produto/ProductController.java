@@ -1,4 +1,4 @@
-package com.tom.sample.example.product;
+package com.tom.sample.example.produto;
 
 import java.util.List;
 
@@ -21,28 +21,28 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ProductController {
 
-	private final ProductService service;
+	private final ProdutoService service;
 
 	@GetMapping(value = "/get")
-	public ResponseEntity<List<ProductResponse>> getAllProduct() {
+	public ResponseEntity<List<ProdutoResponse>> getAllProduct() {
 		var response = service.findAllProducts();
 		return ResponseEntity.status(HttpStatus.OK).body(response);
 	}
 	
 	@GetMapping(value = "/get/{id}")
-	public ResponseEntity<ProductResponse> getProductId(@PathVariable Long id) {
+	public ResponseEntity<ProdutoResponse> getProductId(@PathVariable Long id) {
 		var response = service.findProductId(id);
 		return ResponseEntity.status(HttpStatus.OK).body(response);
 	}
 	
 	@GetMapping(value = "/get/product")
-	public ResponseEntity<ProductResponse> getProductName(@RequestBody @Valid ProductNameRequest request) {
+	public ResponseEntity<ProdutoResponse> getProductName(@RequestBody @Valid ProductNameRequest request) {
 		var response = service.findProductName(request);
 		return ResponseEntity.status(HttpStatus.OK).body(response);
 	}
 
 	@PostMapping(value = "/create")
-	public ResponseEntity<ProductResponse> createProduct(@RequestBody @Valid ProductRequest request) {
+	public ResponseEntity<ProdutoResponse> createProduct(@RequestBody @Valid ProductRequest request) {
 		var response = service.createProduct(request);
 		return ResponseEntity.status(HttpStatus.CREATED).body(response);
 	}

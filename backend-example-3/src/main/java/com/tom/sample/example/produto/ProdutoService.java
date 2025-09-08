@@ -1,4 +1,4 @@
-package com.tom.sample.example.product;
+package com.tom.sample.example.produto;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,13 +17,13 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class ProductService {
+public class ProdutoService {
 
 	private final ProductRepository repository;
 	private final SystemUtils systemUtils;
 	private final ProductMapper mapper;
 	
-	public List<ProductResponse> findAllProducts() {
+	public List<ProdutoResponse> findAllProducts() {
 		List<Produto> product = repository.findAll();
 		if(product.isEmpty()) {
 			throw new NotFoundException("");
@@ -31,23 +31,20 @@ public class ProductService {
 		return product.stream().map(mapper::fromProduct).collect(Collectors.toList());
 	}
 	
-	@Cacheable(value = "products", key = "#productId")
-	public ProductResponse findProductId(Long productId) {
+	public ProdutoResponse findProductId(Long productId) {
 		return repository.findById(productId)
 				.map(mapper::fromProduct)
 				.orElseThrow(() -> new NotFoundException(""));
 	}
 
-	@Cacheable(value = "products", key = "#request.name()")
-	public ProductResponse findProductName(ProductNameRequest request) {
+	public ProdutoResponse findProductName(ProductNameRequest request) {
 		return repository.findByName(request.name())
 				.map(mapper::fromProduct)
 				.orElseThrow(() -> new NotFoundException(""));
 	}
 
 	@Transactional
-	@CachePut(value = "products", key = "#result.id")
-	public ProductResponse createProduct(ProductRequest request) {
+	public ProdutoResponse createProduct(ProductRequest request) {
 		if(repository.existsByName(request.name())) {
 			throw new DuplicateException("");
 		}
@@ -59,7 +56,6 @@ public class ProductService {
 	}
 
 	@Transactional
-	@CachePut(value = "products", key = "#request.product().name()")
 	public void updateProduct(EditRequest request) {
 		var product = repository.findByName(request.product().name()).orElse(null);
 		systemUtils.mergeData(product, request.request());
@@ -67,7 +63,6 @@ public class ProductService {
 	}
 
 	@Transactional
-	@CacheEvict(value = "products", key = "#request.name()")
 	public void deleteProduct(ProductNameRequest request) {
 		if(!repository.existsByName(request.name())) {
 			throw new NotFoundException("");
@@ -76,7 +71,6 @@ public class ProductService {
 	}
 
 	@Transactional
-	@CachePut(value = "products", key = "#request.name()")
 	public void activateProduct(ProductNameRequest request) {
 		var product = repository.findByName(request.name()).orElse(null);
 		if(!product.isActive()) {

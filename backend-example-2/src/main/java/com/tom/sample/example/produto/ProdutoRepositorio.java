@@ -1,4 +1,4 @@
-package com.tom.sample.example.product;
+package com.tom.sample.example.produto;
 
 import java.util.Optional;
 
@@ -6,9 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProductRepository extends JpaRepository<Product, Long> {
+public interface ProdutoRepositorio extends JpaRepository<Produto, Long> {
 
-	Optional<Product> findByNome(String name);
+	Optional<Produto> findByNome(String name);
 
 	boolean existsByNome(String name);
 

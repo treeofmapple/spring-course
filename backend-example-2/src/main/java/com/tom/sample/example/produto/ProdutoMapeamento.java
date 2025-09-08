@@ -1,16 +1,18 @@
-package com.tom.sample.example.product;
+package com.tom.sample.example.produto;
 
 import org.springframework.stereotype.Service;
 
-@Service
-public class ProductMapper {
+import com.tom.sample.example.produto.swagger.ProdutoResposta;
 
-	public Product toProduct(ProductRequest request) {
+@Service
+public class ProdutoMapeamento {
+
+	public Produto toProduct(ProdutoRequer request) {
 		if (request == null) {
 			throw new RuntimeException("");
 		}
 
-		return Product.builder().nome(request.nome())
+		return Produto.builder().nome(request.nome())
 				.quantidade(request.quantidade())
 				.preco(request.preco())
 				.fabricante(request.fabricante())
@@ -18,13 +20,13 @@ public class ProductMapper {
 
 	}
 
-	public ProductResponse fromProduct(Product product) {
-		return new ProductResponse(product.getId(), 
+	public ProdutoResposta fromProduct(Produto product) {
+		return new ProdutoResposta(product.getId(), 
 				product.getNome(), 
 				product.getQuantidade(), 
 				product.getPreco(),
 				product.getFabricante(), 
-				product.isAtivo()
+				product.getAtivo()
 			);
 	}
 

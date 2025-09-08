@@ -13,12 +13,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    private record ApiErrorResponse(String message) {}
-
-    @ExceptionHandler(CustomGlobalException.class)
-    public ResponseEntity<ApiErrorResponse> handleCustomExceptions(CustomGlobalException ex) {
+    @ExceptionHandler(BaseException.class)
+    public ResponseEntity<ApiErrorResponse> handleApiExceptions(BaseException ex) {
         var errorResponse = new ApiErrorResponse(ex.getMessage());
-        return ResponseEntity.status(ex.getStatus()).body(errorResponse);
+        return new ResponseEntity<>(errorResponse, ex.getStatus());
     }
 
 	/*
