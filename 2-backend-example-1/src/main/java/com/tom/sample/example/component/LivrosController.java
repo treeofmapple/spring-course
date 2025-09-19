@@ -25,7 +25,7 @@ public class LivrosController {
 	// @DeleteMapping(value = "")
 	// @PatchMapping(value = "")
 	
-	@GetMapping(value = "")
+	@GetMapping(value = "/{value}")
 	public ResponseEntity<?> buscarObjeto(@PathVariable("value") Long id) {
 		return ResponseEntity.status(HttpStatus.OK).body(null);
 	}
