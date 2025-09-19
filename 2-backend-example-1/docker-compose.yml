@@ -1,0 +1,7 @@
+services:
+  1-example:
+    build: .
+    container_name: 1-example
+    restart: unless-stopped
+    ports:
+      - "8004:8000"
