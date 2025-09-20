@@ -1,5 +1,6 @@
 package com.tom.sample.example.component;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -15,8 +16,10 @@ import org.springframework.context.annotation.Configuration;
 public class LivrosConfiguration {
 
 	@Bean
-	public void runningExample() {
-		
+	public CommandLineRunner runningExample() {
+		return args -> {
+			System.out.println("Kak");
+		};
 	}
 
 	/*

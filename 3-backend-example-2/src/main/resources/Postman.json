@@ -1,0 +1,100 @@
+{
+  "info": {
+    "name": "Example API",
+    "_postman_id": "1f7a2b0a-9d6c-4b7c-b8ff-1234567890ab",
+    "description": "Postman collection for ProdutoControlador and OutroControlador",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "ProdutoControlador",
+      "item": [
+        {
+          "name": "Buscar todos produtos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/v1/produto/buscar"
+          }
+        },
+        {
+          "name": "Buscar produto por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/v1/produto/buscar/1"
+          }
+        },
+        {
+          "name": "Criar produto",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Notebook Dell\",\n  \"descricao\": \"Core i7, 16GB RAM, SSD 512GB\",\n  \"preco\": 4500.00,\n  \"ativo\": true\n}"
+            },
+            "url": "{{baseUrl}}/v1/produto/criar"
+          }
+        },
+        {
+          "name": "Editar produto",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Notebook Dell Atualizado\",\n  \"descricao\": \"Core i7, 32GB RAM, SSD 1TB\",\n  \"preco\": 5200.00,\n  \"ativo\": true\n}"
+            },
+            "url": "{{baseUrl}}/v1/produto/editar/1"
+          }
+        },
+        {
+          "name": "Deletar produto",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/v1/produto/deletar/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OutroControlador",
+      "item": [
+        {
+          "name": "Buscar produto pelo nome",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Notebook Dell\"\n}"
+            },
+            "url": "{{baseUrl}}/v1/spec/buscar/produto"
+          }
+        },
+        {
+          "name": "Ativar produto",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": "{{baseUrl}}/v1/spec/ativar/1"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8000"
+    }
+  ]
+}

@@ -54,9 +54,8 @@ public class ProductService {
 	@Transactional
 	public void atualizarProduto(long id, ProductRequest request) {
 		var first = repository.findById(id).orElseThrow();
-		var product = repository.findByNome(request.nome()).orElse(null);
 		mesclarProduto(first, request);
-		repository.save(product);
+		repository.save(first);
 	}
 
 	@Transactional
