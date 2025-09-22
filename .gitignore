@@ -109,3 +109,6 @@
 *.class
 **/pom.properties
 **/maven-wrapper.properties
+
+**bin
+**/bin
